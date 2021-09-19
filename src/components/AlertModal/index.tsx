@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { IoAlertCircle } from 'react-icons/io5';
 import { Wrapper } from './style';
 
-export const AlertModal = (props: any) => {
-  const [alertOpen, setAlertOpen] = useState<boolean>(props.isOpen);
+interface MeuAlertProps {
+  isOpen: boolean;
+  onClose: (p: boolean) => void;
+}
+
+export const AlertModal: React.FC<MeuAlertProps> = ({ isOpen, onClose }) => {
+  const [alertOpen, setAlertOpen] = useState<boolean>(isOpen);
 
   if (typeof window !== 'undefined') {
     window.onkeydown = function (event) {
@@ -14,19 +19,17 @@ export const AlertModal = (props: any) => {
     };
   }
 
-  return (
-    alertOpen && (
-      <Wrapper>
-        <div className='backdrop' onClick={() => setAlertOpen(false)}></div>
-        <div className='wrapper animate__animated animate__tada'>
-          <IoAlertCircle />
-          <p>Desculpe</p>
+  return alertOpen ? (
+    <Wrapper>
+      <div className='backdrop' onClick={() => setAlertOpen(false)}></div>
+      <div className='wrapper animate__animated animate__tada'>
+        <IoAlertCircle />
+        <p>Desculpe</p>
 
-          <p>Essa página ainda está em desenvolvimento</p>
+        <p>Essa página ainda está em desenvolvimento</p>
 
-          <button onClick={() => setAlertOpen(false)}>Entendi</button>
-        </div>
-      </Wrapper>
-    )
-  );
+        <button onClick={() => setAlertOpen(false)}>Entendi</button>
+      </div>
+    </Wrapper>
+  ) : null;
 };

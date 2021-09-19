@@ -7,19 +7,11 @@ import {
   ConteudoSC,
   DescricaoSC,
   LinkFowardSC,
-  LinkBackSC,
   CardContainerSC,
 } from '../styles/pages/home';
-import {
-  IoLogoLinkedin,
-  IoLogoGithub,
-  IoArrowForward,
-  IoArrowBack,
-  IoLogoWhatsapp,
-} from 'react-icons/io5';
+import { IoLogoWhatsapp } from 'react-icons/io5';
 
 import 'animate.css';
-import { calcularIdade } from '../utils/functions';
 import { Inicio } from '../components/Inicio';
 import { Depoimento } from '../components/Depoimentos';
 import { AlertModal } from '../components/AlertModal';
@@ -73,7 +65,9 @@ const Home = () => {
       </ContainerSC>
 
       <Footer />
-      {alertOpen && <AlertModal isOpen={alertOpen} />}
+      {alertOpen && (
+        <AlertModal isOpen={alertOpen} onClose={() => setAlertOpen(false)} />
+      )}
     </>
   );
 };
