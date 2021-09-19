@@ -4,7 +4,7 @@ import { Wrapper } from './style';
 
 interface MeuAlertProps {
   isOpen: boolean;
-  onClose: (p: boolean) => void;
+  onClose?: (p: boolean) => void;
 }
 
 export const AlertModal: React.FC<MeuAlertProps> = ({ isOpen, onClose }) => {
