@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 
 import {
@@ -22,8 +22,11 @@ import 'animate.css';
 import { calcularIdade } from '../utils/functions';
 import { Inicio } from '../components/Inicio';
 import { Depoimento } from '../components/Depoimentos';
+import { AlertModal } from '../components/AlertModal';
 
 const Home = () => {
+  const [alertOpen, setAlertOpen] = useState<boolean>(true);
+
   return (
     <>
       <Inicio />
@@ -70,6 +73,7 @@ const Home = () => {
       </ContainerSC>
 
       <Footer />
+      {alertOpen && <AlertModal isOpen={alertOpen} />}
     </>
   );
 };
