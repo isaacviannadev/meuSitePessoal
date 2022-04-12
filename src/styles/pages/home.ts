@@ -8,13 +8,13 @@ const fadeIn = keyframes`
 
 type StyleProps = {
   isDark?: boolean;
-  paddingTopOn?: boolean;
+  paddingChange?: string;
 };
 
 export const ContainerSC = styled.main`
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1080px;
   padding: 60px 0;
   margin: 0 auto;
   height: 100%;
@@ -30,6 +30,7 @@ export const FirstSectionSC = styled.section<StyleProps>`
   justify-content: center;
   height: 100%;
   width: 100%;
+  min-height: 400px;
 
   &:first-of-type {
     margin-top: 60px;
@@ -51,9 +52,9 @@ export const ContentSC = styled.div`
   flex-direction: row;
   height: 100%;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1080px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
   & .separator {
     display: none;
@@ -77,13 +78,10 @@ export const ConteudoSC = styled.div<StyleProps>`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  max-width: 420px;
-  padding: 0 20px 20px;
-  ${({ paddingTopOn }) =>
-    paddingTopOn &&
-    css`
-      padding-top: 20px;
-    `};
+  max-width: 500px;
+
+  padding: ${({ paddingChange }) =>
+    paddingChange ? paddingChange : '0 20px 20px;'};
 
   .links {
     display: flex;

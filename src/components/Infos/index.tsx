@@ -12,7 +12,7 @@ const Info = () => {
   return (
     <FirstSectionSC isDark>
       <ContentSC>
-        <ConteudoSC paddingTopOn>
+        <ConteudoSC paddingChange='20px'>
           <DescricaoSC className='animate__animated animate__slideInLeft'>
             <span>– Contato</span>
 
@@ -33,7 +33,7 @@ const Info = () => {
 
         <div className='separator'></div>
 
-        <ConteudoSC paddingTopOn>
+        <ConteudoSC paddingChange='20px'>
           <DescricaoSC className='animate__animated animate__slideInRight'>
             <p className='subtitle'>
               Não há limites para a tecnologia, e ela é igual para todos.
