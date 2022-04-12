@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   to {
@@ -6,10 +6,15 @@ const fadeIn = keyframes`
 } 
 `;
 
+type StyleProps = {
+  isDark?: boolean;
+  paddingTopOn?: boolean;
+};
+
 export const ContainerSC = styled.main`
   display: flex;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1200px;
   padding: 60px 0;
   margin: 0 auto;
   height: 100%;
@@ -17,112 +22,78 @@ export const ContainerSC = styled.main`
   overflow: hidden;
   justify-content: space-between;
   background: transparent;
-
-  .euDetalhes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
-    background-color: transparent;
-    z-index: 2;
-
-    width: fit-content;
-    /* max-width: 320px; */
-    /* padding: 0 0 100px; */
-
-    .logo {
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .nome {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-bottom: 80px;
-
-      p {
-        line-height: 100%;
-        margin-left: 30px;
-        font-size: 60px;
-        font-weight: 500;
-        letter-spacing: 5px;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -30px;
-        left: 30px;
-        width: 35px;
-        height: 6px;
-        background-color: var(--textYellow);
-      }
-    }
-
-    .minhasRedes {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-
-      svg {
-        width: 24px;
-        height: 24px;
-        color: var(--textSecondary);
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.27);
-          transform: translateY(-5px);
-          color: var(--textWhite);
-        }
-      }
-    }
-  }
 `;
 
-export const FirstSectionSC = styled(ContainerSC)`
-  position: relative;
-
-  .foto {
-    position: absolute;
-    width: 100%;
-    max-width: 400px;
-    bottom: 0;
-    animation: fadeIn 0.5s ease-in forwards;
-    filter: drop-shadow(5px -3px 10px rgba(0, 0, 0, 0.7));
-  }
-`;
-
-export const SectionDarkSC = styled.section`
+export const FirstSectionSC = styled.section<StyleProps>`
   display: flex;
-  width: 100%;
-  padding: 60px 40px;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  min-height: 500px;
+  width: 100%;
 
-  background: var(--bgDarkSecondary);
+  &:first-of-type {
+    margin-top: 60px;
+  }
+
+  ${({ isDark }) =>
+    isDark &&
+    css`
+      background: var(--bgDarkSecondary);
+    `};
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
 `;
 
-export const ConteudoSC = styled.div`
+export const ContentSC = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-around;
+
+  & .separator {
+    display: none;
+    width: 100%;
+    border-top: 1px dashed var(--textYellow);
+    margin: 20px 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    & .separator {
+      display: flex;
+    }
+  }
+`;
+
+export const ConteudoSC = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* padding: 0 0 100px; */
   width: 100%;
+  height: 100%;
   max-width: 420px;
-  overflow: hidden;
+  padding: 0 20px 20px;
+  ${({ paddingTopOn }) =>
+    paddingTopOn &&
+    css`
+      padding-top: 20px;
+    `};
 
   .links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 20px;
-    height: 60px;
+    min-height: 60px;
 
     p {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       position: relative;
       transition: all 0.2s ease-in-out;
@@ -149,6 +120,24 @@ export const ConteudoSC = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+
+    .links {
+      align-items: center;
+      margin-bottom: 20px;
+
+      gap: 0;
+
+      p {
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
 `;
 
 export const DescricaoSC = styled.div`
@@ -160,9 +149,8 @@ export const DescricaoSC = styled.div`
   span {
     color: var(--textSecondary);
   }
-
   .subtitle {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: var(--textWhite);
     line-height: 50px;
   }
@@ -170,6 +158,12 @@ export const DescricaoSC = styled.div`
   p {
     color: var(--textSecondary);
     line-height: 30px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .subtitle {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -180,6 +174,7 @@ export const LinkFowardSC = styled.a`
   font-size: 20px;
   transition: all 0.2s ease-in-out;
   width: fit-content;
+  margin-top: 20px;
 
   svg {
     margin-left: 12px;
