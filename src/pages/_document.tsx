@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
       <Html lang='pt-br'>
         <Head>
           <meta charSet='utf-8' />
-
+          <meta name='theme-color' content='#2E3041' />
           <link
             href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Turret+Road:wght@200;400;700&display=swap'
             rel='stylesheet'
