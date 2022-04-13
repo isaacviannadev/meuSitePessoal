@@ -15,13 +15,22 @@ export const ContainerSC = styled.main`
   display: flex;
   width: 100%;
   max-width: 1080px;
-  padding: 60px 0;
+  padding: 40px 0;
   margin: 0 auto;
   height: 100%;
   max-height: 600px;
   overflow: hidden;
   justify-content: space-between;
   background: transparent;
+
+  &.depo {
+    max-height: 500px;
+    padding: 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 20px 0;
+  }
 `;
 
 export const FirstSectionSC = styled.section<StyleProps>`
@@ -42,6 +51,42 @@ export const FirstSectionSC = styled.section<StyleProps>`
       background: var(--bgDarkSecondary);
     `};
 
+  & .mySwiper {
+    height: 100%;
+    width: 100%;
+    max-width: 1080px;
+    overflow: hidden;
+    position: relative;
+
+    & .swiper-wrapper {
+      margin-right: 30px;
+    }
+
+    /* max-height: 600px; */
+
+    & .swiper-pagination {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      width: fit-content;
+      height: 100%;
+      margin: 0 12px;
+      position: absolute;
+      right: 0;
+
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 40px;
+        cursor: pointer;
+        background: var(--textUnselected);
+      }
+
+      .swiper-pagination-bullet-active {
+        background: var(--textYellow);
+      }
+    }
+  }
   @media only screen and (max-width: 768px) {
     margin-top: 10px;
   }

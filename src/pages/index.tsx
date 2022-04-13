@@ -18,7 +18,7 @@ const Home = () => {
 
       <Info />
 
-      <ContainerSC>
+      <ContainerSC className='depo'>
         <CardContainerSC>
           <Depoimento />
         </CardContainerSC>
