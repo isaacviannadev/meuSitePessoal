@@ -59,6 +59,7 @@ export const Depoimento = () => {
         }}
         autoplay={{
           delay: 10000,
+          disableOnInteraction: false,
         }}
         modules={[Autoplay, Mousewheel, Pagination]}
         className='mySwiper'
