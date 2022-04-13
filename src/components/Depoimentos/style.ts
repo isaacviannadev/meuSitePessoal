@@ -28,7 +28,7 @@ export const FotoDepoSC = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 100%;
+  width: fit-content;
   height: 100%;
 
   img {
