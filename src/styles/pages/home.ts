@@ -55,7 +55,7 @@ export const FirstSectionSC = styled.section<StyleProps>`
     height: 100%;
     width: 100%;
     max-width: 1080px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
 
     & .swiper-wrapper {
