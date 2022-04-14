@@ -59,6 +59,7 @@ button {
 button,
 a {
   cursor: pointer;
+  z-index: 1;
 }
 
 a {

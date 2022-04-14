@@ -22,6 +22,7 @@ const FirstSectionSC = styled.section`
   height: 100%;
   width: 100%;
   margin-top: 60px;
+  overflow: hidden;
 
   @media only screen and (max-width: 768px) {
     margin-top: 10px;
@@ -29,18 +30,64 @@ const FirstSectionSC = styled.section`
 `;
 
 const Intro = styled.div`
-  background: url('/eu.png') no-repeat left top;
-  background-size: contain;
   width: 100%;
-  height: 400px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0 20px 20px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+
+    background: linear-gradient(
+      45deg,
+      rgba(254, 192, 91, 0.6),
+      rgba(0, 0, 0, 0.5)
+    );
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -200px;
+
+    background: linear-gradient(
+      225deg,
+      rgba(47, 7, 102, 0.2),
+      rgba(0, 0, 0, 0.5)
+    );
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.4);
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  & .foto {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 
   & .logo {
     width: 100%;
     max-width: 200px;
+    z-index: 1;
   }
 
   & .nome {
@@ -67,12 +114,13 @@ const Intro = styled.div`
     }
   }
 
-  .minhasRedes {
+  & .minhasRedes {
     display: flex;
     width: 100%;
     flex-direction: row;
     gap: 10px;
     align-items: center;
+    z-index: 1;
 
     svg {
       width: 24px;
@@ -89,6 +137,7 @@ const Intro = styled.div`
 
     @media only screen and (max-width: 768px) {
       justify-content: end;
+
       svg {
         color: var(--textYellow);
         width: 36px;
@@ -103,7 +152,7 @@ const Intro = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    height: 320px;
+    height: 400px;
   }
 `;
 
@@ -113,10 +162,10 @@ export const Inicio = () => {
 
   return (
     <FirstSectionSC>
-      {/* <img className='foto' src='/eu.png' alt='Isaac' /> */}
-
       <ContentSC>
         <Intro>
+          <img className='foto' src='/eu.png' alt='Isaac' />
+
           <img className='logo' src='/div.svg' alt='logo' />
           <div className='nome'>
             <p>Isaac</p>
@@ -167,7 +216,7 @@ export const Inicio = () => {
           </div>
 
           {!historia ? (
-            <DescricaoSC className='animate__animated animate__slideInLeft'>
+            <DescricaoSC className='animate__animated animate__slideInLeft '>
               <span>– Introdução</span>
 
               <p className='subtitle'>Desenvolvedor Web, Mobile e Desktop </p>

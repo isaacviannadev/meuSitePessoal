@@ -128,12 +128,13 @@ export const ConteudoSC = styled.div<StyleProps>`
   padding: ${({ paddingChange }) =>
     paddingChange ? paddingChange : '0 20px 20px;'};
 
-  .links {
+  & .links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 20px;
     min-height: 60px;
+    z-index: 1;
 
     p {
       font-size: 1.5rem;
@@ -188,6 +189,7 @@ export const DescricaoSC = styled.div`
   gap: 12px;
   flex-direction: column;
   width: 100%;
+  z-index: 1;
 
   span {
     color: var(--textSecondary);
