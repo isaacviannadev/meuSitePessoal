@@ -31,10 +31,10 @@ const FirstSectionSC = styled.section`
 
 const Intro = styled.div`
   width: 100%;
-  height: 800px;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 20px 20px;
   position: relative;
 
@@ -77,75 +77,84 @@ const Intro = styled.div`
   }
 
   & .foto {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
   }
 
-  & .logo {
-    width: 100%;
-    max-width: 200px;
-    z-index: 1;
-  }
-
-  & .nome {
+  & .content {
     display: flex;
     flex-direction: column;
-    position: relative;
-
-    p {
-      line-height: 100%;
-      margin-left: 30px;
-      font-weight: 500;
-      letter-spacing: 5px;
-      font-size: 3.5rem;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 30px;
-      width: 35px;
-      height: 6px;
-      background-color: var(--textYellow);
-    }
-  }
-
-  & .minhasRedes {
-    display: flex;
+    justify-content: space-between;
     width: 100%;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    z-index: 1;
+    height: 100%;
+    max-height: 356px;
 
-    svg {
-      width: 24px;
-      height: 24px;
-      color: var(--textSecondary);
-      transition: all 0.2s ease-in-out;
+    & .logo {
+      width: 100%;
+      max-width: 200px;
+      z-index: 1;
+    }
 
-      &:hover {
-        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.27);
-        transform: translateY(-5px);
-        color: var(--textWhite);
+    & .nome {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      p {
+        line-height: 100%;
+        margin-left: 30px;
+        font-weight: 500;
+        letter-spacing: 5px;
+        font-size: 3.5rem;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 30px;
+        width: 35px;
+        height: 6px;
+        background-color: var(--textYellow);
       }
     }
 
-    @media only screen and (max-width: 768px) {
-      justify-content: end;
+    & .minhasRedes {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      z-index: 1;
 
       svg {
-        color: var(--textYellow);
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
+        color: var(--textSecondary);
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-          transform: translateY(0);
-          box-shadow: none;
+          box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.27);
+          transform: translateY(-5px);
+          color: var(--textWhite);
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        justify-content: end;
+
+        svg {
+          color: var(--textYellow);
+          width: 36px;
+          height: 36px;
+
+          &:hover {
+            transform: translateY(0);
+            box-shadow: none;
+          }
         }
       }
     }
@@ -166,27 +175,29 @@ export const Inicio = () => {
         <Intro>
           <img className='foto' src='/eu.png' alt='Isaac' />
 
-          <img className='logo' src='/div.svg' alt='logo' />
-          <div className='nome'>
-            <p>Isaac</p>
-            <p>Vianna</p>
-          </div>
+          <div className='content'>
+            <img className='logo' src='/div.svg' alt='logo' />
+            <div className='nome'>
+              <p>Isaac</p>
+              <p>Vianna</p>
+            </div>
 
-          <div className='minhasRedes'>
-            <a
-              href='https://www.linkedin.com/in/isaacvianna/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <IoLogoLinkedin />
-            </a>
-            <a
-              href='https://github.com/isaacviannadev'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <IoLogoGithub />
-            </a>
+            <div className='minhasRedes'>
+              <a
+                href='https://www.linkedin.com/in/isaacvianna/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <IoLogoLinkedin />
+              </a>
+              <a
+                href='https://github.com/isaacviannadev'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <IoLogoGithub />
+              </a>
+            </div>
           </div>
         </Intro>
 
