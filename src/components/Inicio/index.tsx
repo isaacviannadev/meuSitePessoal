@@ -53,6 +53,12 @@ const Intro = styled.div`
     height: 400px;
     border-radius: 50%;
     box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.4);
+    @media only screen and (max-width: 768px) {
+      width: 260px;
+      height: 260px;
+      right: -50px;
+      top: 50px;
+    }
   }
 
   &::after {
@@ -63,8 +69,8 @@ const Intro = styled.div`
 
     background: linear-gradient(
       225deg,
-      rgba(47, 7, 102, 0.2),
-      rgba(0, 0, 0, 0.5)
+      rgba(47, 7, 102, 0.8),
+      rgba(0, 0, 0, 0.9)
     );
     width: 400px;
     height: 400px;
@@ -72,7 +78,10 @@ const Intro = styled.div`
     box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.4);
 
     @media only screen and (max-width: 768px) {
-      display: none;
+      width: 160px;
+      height: 160px;
+      bottom: -40px;
+      left: 75%;
     }
   }
 
